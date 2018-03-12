@@ -1,0 +1,147 @@
+package selenium.test.util;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class CommonPage {
+
+
+	protected static WebDriver driver;
+	 WebDriverWait wait;
+	 private final int TIMEOUT = 10;
+	 public CommonPage() {}
+	    
+	protected CommonPage(WebDriver driver) {
+	        this.driver = driver;
+	        PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT) , this);
+	    }
+	    
+	protected CommonPage(WebDriver driver, final String title) {
+	        this.driver = driver;
+	        
+	        //如果不进行判断，
+	        WebDriverWait wait = new WebDriverWait(driver,TIMEOUT);
+	        try{
+	            boolean flag = wait.until(new ExpectedCondition<Boolean>(){
+	                @Override
+	                public Boolean apply(WebDriver arg0) {
+	                    // TODO Auto-generated method stub
+	                    String acttitle = arg0.getTitle();
+	                    return acttitle.equals(title);                    
+	                }});
+	        }catch(TimeoutException te) {
+	            throw new IllegalStateException("当前不是预期页面，当前页面title是：" + driver.getTitle());
+	        }
+	}   
+	        
+	        
+	public  WebDriver open_Browser(String browserName) {
+		try {
+			if (browserName.equalsIgnoreCase("Firefox")) {
+				driver = new FirefoxDriver();
+			} else if (browserName.equalsIgnoreCase("chrome")) {
+				System.setProperty("webdriver.chrome.driver","D:\\workspace\\eclipse\\testest\\src\\driver\\chromedriver.exe");
+				driver = new ChromeDriver();
+			} else if (browserName.equalsIgnoreCase("IE")) {
+				System.setProperty("webdriver.ie.driver",
+						"D:/Jars/IEDriverServer.exe");
+				driver = new InternetExplorerDriver();
+			}
+		} catch (WebDriverException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return driver;
+	}
+
+	public void enter_URL(String URL) {
+		driver.navigate().to(URL);
+	}
+
+	public By locatorValue(String locatorTpye, String value) {
+		By by;
+		switch (locatorTpye) {
+		case "id":
+			by = By.id(value);
+			break;
+		case "name":
+			by = By.name(value);
+			break;
+		case "xpath":
+			by = By.xpath(value);
+			break;
+		case "css":
+			by = By.cssSelector(value);
+			break;
+		case "linkText":
+			by = By.linkText(value);
+			break;
+		case "partialLinkText":
+			by = By.partialLinkText(value);
+			break;
+		default:
+			by = null;
+			break;
+		}
+		return by;
+	}
+
+	public void enter_Text(String locatorType, String value, String text) {
+		try {
+			By locator;
+			locator = locatorValue(locatorType, value);
+			WebElement element = driver.findElement(locator);
+			element.sendKeys(text);
+		} catch (NoSuchElementException e) {
+			System.err.format("No Element Found to enter text" + e);
+		}
+	}
+
+	public void click_On_Link(String locatorType, String value) {
+		try {
+			By locator;
+			locator = locatorValue(locatorType, value);
+			WebElement element = driver.findElement(locator);
+			element.click();
+		} catch (NoSuchElementException e) {
+			System.err.format("No Element Found to enter text" + e);
+		}
+	}
+
+	public void click_On_Button(String locatorType, String value) {
+		try {
+			By locator;
+			locator = locatorValue(locatorType, value);
+			WebElement element = driver.findElement(locator);
+			element.click();
+		} catch (NoSuchElementException e) {
+			System.err.format("No Element Found to perform click" + e);
+		}
+	}
+	
+	public void close_Browser() {
+		driver.quit();
+	}
+	
+	
+	
+	public static void sleep(int second) {
+		
+		try {
+			Thread.sleep(second*1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}

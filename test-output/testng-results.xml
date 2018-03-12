@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="11214" started-at="2018-03-12T14:30:44Z" finished-at="2018-03-12T14:30:55Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="11214" started-at="2018-03-12T14:30:44Z" finished-at="2018-03-12T14:30:55Z">
+      <class name="script.xiaomi.test">
+        <test-method status="PASS" signature="testFun()[pri:0, instance:script.xiaomi.test@59fa1d9b]" name="testFun" duration-ms="11189" started-at="2018-03-12T14:30:44Z" finished-at="2018-03-12T14:30:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFun -->
+      </class> <!-- script.xiaomi.test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
