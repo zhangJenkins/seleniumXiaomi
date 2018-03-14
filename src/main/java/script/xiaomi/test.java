@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import selenium.test.App;
-import selenium.test.pagesFac.HomePage;
-import selenium.test.pagesFac.LoginPage;
+import selenium.test.pagesFactory.HomePage;
+import selenium.test.pagesFactory.LoginPage;
 import selenium.test.util.CommonPage;
 
 
@@ -21,18 +21,14 @@ public class test {
 			commonUtil.enter_URL(App.URL);
 			CommonPage.sleep(2);
 			
-//			HomePage.goToLoginPage();
-//			LoginPage.loginBy("13802264044","zhang1988");
-			
 			LoginPage loginPage = new LoginPage(driver);
-			loginPage.login("13802264044","zhang1988");
+			loginPage.login("*******","*******");
 			
 			
 			commonUtil.close_Browser();	
 			
 		} catch (Exception e) {
 			commonUtil.close_Browser();
-		}
-	
+		}	
 	}
 }
