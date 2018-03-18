@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11214" started-at="2018-03-12T14:30:44Z" finished-at="2018-03-12T14:30:55Z">
+  <suite name="Default suite" duration-ms="2946" started-at="2018-03-18T06:37:43Z" finished-at="2018-03-18T06:37:46Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11214" started-at="2018-03-12T14:30:44Z" finished-at="2018-03-12T14:30:55Z">
-      <class name="script.xiaomi.test">
-        <test-method status="PASS" signature="testFun()[pri:0, instance:script.xiaomi.test@59fa1d9b]" name="testFun" duration-ms="11189" started-at="2018-03-12T14:30:44Z" finished-at="2018-03-12T14:30:55Z">
+    <test name="Default test" duration-ms="2946" started-at="2018-03-18T06:37:43Z" finished-at="2018-03-18T06:37:46Z">
+      <class name="selenium.example.takeScreenShotExample">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:selenium.example.takeScreenShotExample@4501b7af]" name="openBrowser" duration-ms="2929" started-at="2018-03-18T06:37:43Z" finished-at="2018-03-18T06:37:46Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testFun -->
-      </class> <!-- script.xiaomi.test -->
+        </test-method> <!-- openBrowser -->
+      </class> <!-- selenium.example.takeScreenShotExample -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

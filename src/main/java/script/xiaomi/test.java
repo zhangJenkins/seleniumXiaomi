@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import selenium.test.App;
 import selenium.test.pagesFactory.HomePage;
 import selenium.test.pagesFactory.LoginPage;
-import selenium.test.util.CommonPage;
+import selenium.test.util.CommonUtil;
 
 
 
@@ -14,12 +14,12 @@ public class test {
 
 	@Test
 	public void testFun(){
-		CommonPage commonUtil = new CommonPage();
+		CommonUtil commonUtil = new CommonUtil();
 		
 		try {			
 			WebDriver driver = commonUtil.open_Browser("chrome");
 			commonUtil.enter_URL(App.URL);
-			CommonPage.sleep(2);
+			CommonUtil.sleep(2);
 			
 			LoginPage loginPage = new LoginPage(driver);
 			loginPage.login("*******","*******");
