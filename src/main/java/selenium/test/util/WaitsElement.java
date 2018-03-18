@@ -10,15 +10,28 @@ public class WaitsElement {
 
 	WebDriver driver;
 	
+	public WaitsElement(WebDriver driver) {
+		this.driver = driver;
+	}
+	
 	public void isElementPresent(By locator,int waitTime) {
 		WebDriverWait wait = new WebDriverWait(driver, waitTime);
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator)); 
 	}
 	
+
 	public void isElementClickable(By locator,int waitTime) {
 		WebDriverWait wait = new WebDriverWait(driver, waitTime);
 		wait.until(ExpectedConditions.elementToBeClickable(locator)); 
+		
 	}
+	
+	public void isElementVisible(WebElement element,int waitTime) {
+		WebDriverWait wait = new WebDriverWait(driver, waitTime);
+		wait.until(ExpectedConditions.invisibilityOf(element)); 
+	}
+	
+	
 	
 	public void isElementVisible(By locator,int waitTime) {
 		WebDriverWait wait = new WebDriverWait(driver, waitTime);

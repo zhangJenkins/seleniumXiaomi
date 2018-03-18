@@ -170,4 +170,15 @@ public class CommonUtil {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public void deleteAllCookies()
+	{
+		driver.manage().deleteAllCookies();
+	}
+	
+	public void deleteCookieNamedExample(String cookieName)
+	{
+		driver.manage().deleteCookieNamed(cookieName);
+	}
 }
