@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--- TestNG XML example to execute Multiple Classes -->
+
+<suite name="example suite 1" verbose="1" >
+  <test name="Regression suite 1" >
+    <classes>
+      <class name="testng.testngxml.multipleClasses.demoOne"/>
+      <class name="testng.testngxml.multipleClasses.demoTwo"/>
+      <class name="testng.testngxml.multipleClasses.demoThree"/>
+    </classes>
+ </test>
+</suite>

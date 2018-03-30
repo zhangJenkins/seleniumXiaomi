@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="selenium.example.takeScreenShotExample">
+      <class name="testng.testngAnnotation.retry.TestNGExampleTests">
         <methods>
-          <include name="openBrowser"/>
+          <include name="verifyForgotPasswordPage"/>
         </methods>
-      </class> <!-- selenium.example.takeScreenShotExample -->
+      </class> <!-- testng.testngAnnotation.retry.TestNGExampleTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

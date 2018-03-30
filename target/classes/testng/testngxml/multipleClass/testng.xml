@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--- Multiple Tests with TestNG.XML -->
+
+<suite name="Sample Suite" verbose="1" >
+  <test name="Unit Level Test" >
+    <classes>
+       <class name="testng.testngxml.multipleClass.entry.AddTestCase" />
+	   <class name="testng.testngxml.multipleClass.entry.EditTestCase" />
+    </classes>
+  </test>
+  <test name="Regression Test">
+    <classes>
+      <class name="testng.testngxml.multipleClass.record.AddUserTestCase" />
+      <class name="testng.testngxml.multipleClass.record.DeleteUserTestCase" />
+    </classes>
+  </test>
+</suite>

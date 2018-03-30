@@ -48,6 +48,14 @@ public class CommonUtil {
 	}   
 	        
 	        
+	public static WebDriver getDriver() {
+		return driver;
+	}
+
+	public static void setDriver(WebDriver driver) {
+		CommonUtil.driver = driver;
+	}
+
 	public static  WebDriver open_Browser(String browserName) {
 		try {
 			if (browserName.equalsIgnoreCase("Firefox")) {
