@@ -10,6 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -66,6 +69,23 @@ public class CommonUtil {
 			} else if (browserName.equalsIgnoreCase("IE")) {
 				System.setProperty("webdriver.ie.driver","D:/Jars/IEDriverServer.exe");
 				driver = new InternetExplorerDriver();
+			}else if (browserName.equalsIgnoreCase("PhantomJS")) {
+				// 设置必要参数
+				DesiredCapabilities dcaps = new DesiredCapabilities();
+				// ssl证书支持
+				dcaps.setCapability("acceptSslCerts", true);
+				// 截屏支持
+				dcaps.setCapability("takesScreenshot", true);
+				// css搜索支持
+				dcaps.setCapability("cssSelectorsEnabled", true);
+				// js支持
+				dcaps.setJavascriptEnabled(true);
+				// 驱动支持
+				dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, driverPath +"phantomjs-2.1.1-windows\\bin\\phantomjs.exe");
+				// 创建无界面浏览器对象
+				PhantomJSDriver driver = new PhantomJSDriver(dcaps);
+
+				return driver;
 			}
 		} catch (WebDriverException e) {
 			System.out.println(e.getMessage());
