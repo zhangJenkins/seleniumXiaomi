@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--- Parallel Execution of test methods in TestNG -->
+
+<suite name="Parallel test suite" parallel="methods" thread-count="2">
+  <test name="Regression 1">
+    <classes>
+      <class name="testng.testngxml.parallelExecution.TestParallelOne"/>
+    </classes>
+  </test>
+</suite>

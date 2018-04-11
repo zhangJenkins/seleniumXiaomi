@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--- Groups in TestNG-->
+
+<suite name="Sample Suite">
+  <test name="testing">
+  	<groups>
+      <run>
+        <include name="Regression"/>
+      </run>
+    </groups>
+    <classes>
+       <class name="testng.testngxml.groupsInTestng.groupExamples" />
+    </classes>
+  </test>
+</suite>
