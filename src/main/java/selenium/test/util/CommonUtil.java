@@ -33,7 +33,7 @@ public class CommonUtil {
 		 getCurrentPath();
 	 }
 
-	 public String  getCurrentPath() {
+	 public static String  getCurrentPath() {
 		File file = new File(".");
 		String  filePath = null ;
 		 try {
@@ -111,7 +111,9 @@ public class CommonUtil {
 		// js支持
 		dcaps.setJavascriptEnabled(true);
 		// 驱动支持
-		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, driverPath +"phantomjs-2.1.1-windows\\bin\\phantomjs.exe");
+		String path = getCurrentPath()+"\\src\\driver\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe";
+		System.out.println("path:" + path);
+		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, path);
 		// 创建无界面浏览器对象
 		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
 

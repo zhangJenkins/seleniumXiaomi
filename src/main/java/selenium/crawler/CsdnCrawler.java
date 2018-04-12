@@ -33,12 +33,12 @@ public class CsdnCrawler implements Runnable{
 			urlList.add(temp);
 			
 		}
-		for (int j = 0; j < 20; j++) {
+//		for (int j = 0; j < 20; j++) {
 			for (int i = 0; i < urlList.size(); i++) {
 				driver.get(urlList.get(i));
-				System.out.println(threadName + "\t urlList:_" + j+"_"+ i + "\t:" + urlList.get(i));
+				System.out.println(threadName + "\t urlList:_"+"_"+ i + "\t:" + urlList.get(i));
 			}	
-		}
+//		}
 		
 		
 		driver.quit();

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import okhttp3.internal.connection.StreamAllocation.StreamAllocationReference;
 import selenium.test.App;
 import selenium.test.pagesFactory.HomePage;
 import selenium.test.pagesFactory.LoginPage;
@@ -16,20 +17,22 @@ public class test {
 	@Test
 	public void testFun(){
 		CommonUtil commonUtil = new CommonUtil();
-		
+		WebDriver driver = null;
 		try {			
-			WebDriver driver = CommonUtil.open_Browser("chrome");
-			commonUtil.enter_URL(App.URL);
+			driver = CommonUtil.open_Browser("PhantomJS");
+//			commonUtil.enter_URL(App.URL);
+			driver.navigate().to(App.URL);
 			CommonUtil.sleep(2);
 			
 			LoginPage loginPage = new LoginPage(driver);
 			loginPage.login("*******","*******");
 			
-			
-			commonUtil.close_Browser();	
+			String title = driver.getTitle();
+			System.out.println("title:" + title);
+			driver.quit();
 			
 		} catch (Exception e) {
-			commonUtil.close_Browser();
+			driver.quit();
 		}	
 	}
 	
