@@ -1,5 +1,8 @@
 package selenium.test.util;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -25,11 +28,26 @@ public class CommonUtil {
 	protected static WebDriver driver;
 	 WebDriverWait wait;
 	 private final int TIMEOUT = 10;
-	 public CommonUtil() {}
+	 
+	 public CommonUtil() {
+		 getCurrentPath();
+	 }
+
+	 public String  getCurrentPath() {
+		File file = new File(".");
+		String  filePath = null ;
+		 try {
+			 filePath = file.getCanonicalPath();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		 
+		 return filePath;
+	}
 	    
 	protected CommonUtil(WebDriver driver) {
-	        this.driver = driver;
-	        PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT) , this);
+		getCurrentPath();
+        this.driver = driver;
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT) , this);
 	    }
 	    
 	protected CommonUtil(WebDriver driver, final String title) {
@@ -106,7 +124,7 @@ public class CommonUtil {
 				System.setProperty("webdriver.gecko.driver", driverPath+"geckodriver.exe");
 				driver = new FirefoxDriver();
 			} else if (browserName.equalsIgnoreCase("chrome")) {
-				System.setProperty("webdriver.chrome.driver","D:\\workspace\\eclipse\\testest\\src\\driver\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",getCurrentPath()+"\\src\\driver\\chromedriver.exe");
 				driver = new ChromeDriver();
 			} else if (browserName.equalsIgnoreCase("IE")) {
 				System.out.println("launching Microsoft Edge browser");
@@ -212,5 +230,9 @@ public class CommonUtil {
 	public void deleteCookieNamedExample(String cookieName)
 	{
 		driver.manage().deleteCookieNamed(cookieName);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new CommonUtil().getCurrentPath()+"\\src\\driver\\chromedriver.exe");
 	}
 }

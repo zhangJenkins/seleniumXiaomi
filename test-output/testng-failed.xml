@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [example suite 1]">
-  <listeners>
-    <listener class-name="testng.testngAnnotation.retry.RetryListener"/>
-  </listeners>
-  <test thread-count="5" name="Regression suite 1(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testng.testngAnnotation.retry.TestNGExampleTests">
+      <class name="script.xiaomi.test">
         <methods>
-          <include name="verifyForgotPasswordPage"/>
+          <include name="testFun001"/>
         </methods>
-      </class> <!-- testng.testngAnnotation.retry.TestNGExampleTests -->
+      </class> <!-- script.xiaomi.test -->
     </classes>
-  </test> <!-- Regression suite 1(failed) -->
-</suite> <!-- Failed suite [example suite 1] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
