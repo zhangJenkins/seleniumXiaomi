@@ -6,10 +6,8 @@
   <artifactId>testest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-
   <name>testest</name>
   <url>http://maven.apache.org</url>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -22,6 +20,9 @@
                 <configuration>  
                     <source>1.8</source>  
                     <target>1.8</target>  
+                     <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>  
             </plugin>  
         </plugins>  
