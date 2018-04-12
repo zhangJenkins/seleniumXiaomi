@@ -1,6 +1,7 @@
 package script.xiaomi;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import selenium.test.App;
@@ -17,7 +18,7 @@ public class test {
 		CommonUtil commonUtil = new CommonUtil();
 		
 		try {			
-			WebDriver driver = commonUtil.open_Browser("chrome");
+			WebDriver driver = CommonUtil.open_Browser("chrome");
 			commonUtil.enter_URL(App.URL);
 			CommonUtil.sleep(2);
 			
@@ -31,4 +32,9 @@ public class test {
 			commonUtil.close_Browser();
 		}	
 	}
+	
+	@Test
+	public void testFun001(){
+		Assert.assertTrue(false);
+		}
 }
