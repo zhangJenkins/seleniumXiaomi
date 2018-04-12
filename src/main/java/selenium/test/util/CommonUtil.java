@@ -82,7 +82,7 @@ public class CommonUtil {
 			if (browserName.equalsIgnoreCase("Firefox")) {
 				driver = new FirefoxDriver();
 			} else if (browserName.equalsIgnoreCase("chrome")) {
-				System.setProperty("webdriver.chrome.driver",driverPath + "chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", new CommonUtil().getCurrentPath()+"\\src\\driver\\chromedriver.exe");
 				driver = new ChromeDriver();
 			} else if (browserName.equalsIgnoreCase("IE")) {
 				System.setProperty("webdriver.ie.driver","D:/Jars/IEDriverServer.exe");
