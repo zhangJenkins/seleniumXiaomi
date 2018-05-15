@@ -4,9 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import okhttp3.internal.connection.StreamAllocation.StreamAllocationReference;
 import selenium.test.App;
-import selenium.test.pagesFactory.HomePage;
 import selenium.test.pagesFactory.LoginPage;
 import selenium.test.util.CommonUtil;
 

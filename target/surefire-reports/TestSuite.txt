@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.274 sec <<< FAILURE!
-testFun001(script.xiaomi.test)  Time elapsed: 0.008 sec  <<< FAILURE!
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 47.881 sec <<< FAILURE!
+testFun001(script.xiaomi.test)  Time elapsed: 0.01 sec  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)
 	at org.testng.Assert.assertTrue(Assert.java:44)
 	at org.testng.Assert.assertTrue(Assert.java:54)
-	at script.xiaomi.test.testFun001(test.java:38)
+	at script.xiaomi.test.testFun001(test.java:41)
 

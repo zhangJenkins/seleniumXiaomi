@@ -72,5 +72,41 @@
     <artifactId>phantomjsdriver</artifactId>
     <version>1.2.1</version>
 </dependency>
-      </dependencies>
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>2.2.1</version>
+</dependency>
+<dependency>  
+    <groupId>net.sourceforge.htmlunit</groupId>  
+    <artifactId>htmlunit</artifactId>  
+    <version>2.26</version>  
+ </dependency>
+ <dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.0.1</version>
+</dependency>
+<dependency>
+    <groupId>us.codecraft</groupId>
+    <artifactId>webmagic-core</artifactId>
+    <version>0.7.3</version>
+</dependency>
+<dependency>
+    <groupId>us.codecraft</groupId>
+    <artifactId>webmagic-extension</artifactId>
+    <version>0.7.3</version>
+</dependency>
+<dependency>
+    <groupId>us.codecraft</groupId>
+    <artifactId>webmagic-extension</artifactId>
+    <version>0.7.3</version>
+    <exclusions>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>	
+</dependencies>
 </project>

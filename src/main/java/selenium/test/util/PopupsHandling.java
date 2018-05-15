@@ -3,7 +3,6 @@ package selenium.test.util;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
 
 public class PopupsHandling {
 	WebDriver driver;

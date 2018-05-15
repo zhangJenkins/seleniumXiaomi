@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="12037" started-at="2018-04-12T15:05:57Z" finished-at="2018-04-12T15:06:09Z">
+  <suite name="Suite" duration-ms="47570" started-at="2018-05-03T14:21:40Z" finished-at="2018-05-03T14:22:28Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="12037" started-at="2018-04-12T15:05:57Z" finished-at="2018-04-12T15:06:09Z">
+    <test name="Test" duration-ms="47570" started-at="2018-05-03T14:21:40Z" finished-at="2018-05-03T14:22:28Z">
       <class name="script.xiaomi.test">
-        <test-method status="PASS" signature="testFun()[pri:0, instance:script.xiaomi.test@506e6d5e]" name="testFun" duration-ms="11997" started-at="2018-04-12T15:05:57Z" finished-at="2018-04-12T15:06:09Z">
+        <test-method status="PASS" signature="testFun()[pri:0, instance:script.xiaomi.test@22f71333]" name="testFun" duration-ms="47530" started-at="2018-05-03T14:21:40Z" finished-at="2018-05-03T14:22:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFun -->
-        <test-method status="FAIL" signature="testFun001()[pri:0, instance:script.xiaomi.test@506e6d5e]" name="testFun001" duration-ms="5" started-at="2018-04-12T15:06:09Z" finished-at="2018-04-12T15:06:09Z">
+        <test-method status="FAIL" signature="testFun001()[pri:0, instance:script.xiaomi.test@22f71333]" name="testFun001" duration-ms="5" started-at="2018-05-03T14:22:28Z" finished-at="2018-05-03T14:22:28Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -22,7 +22,7 @@ at org.testng.Assert.fail(Assert.java:96)
 at org.testng.Assert.failNotEquals(Assert.java:776)
 at org.testng.Assert.assertTrue(Assert.java:44)
 at org.testng.Assert.assertTrue(Assert.java:54)
-at script.xiaomi.test.testFun001(test.java:38)
+at script.xiaomi.test.testFun001(test.java:41)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -1,6 +1,5 @@
 package selenium.example;
 
-import java.sql.Driver;
 import java.util.ArrayList;
 import java.util.List;
 
