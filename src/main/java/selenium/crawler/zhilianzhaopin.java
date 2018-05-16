@@ -13,7 +13,7 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-import common.Util;
+import common.ExcelMethod;
 
 public class zhilianzhaopin {
 	@Test  
@@ -25,50 +25,69 @@ public class zhilianzhaopin {
    
         List<String> urlList =  getZlzpUrl(webClient);
         
-       for (String url : urlList) {
-        List<String> baseInfoList = new ArrayList<>();
-        	HtmlPage page = webClient.getPage(url);  
-        	List<DomElement> bodyElementList = page.getElementsByTagName("body");
-        	List<HtmlElement> divElementList = bodyElementList.get(0).getElementsByTagName("div");
-        	for (HtmlElement htmlElement : divElementList) {
-        		String classAttr = htmlElement.getAttribute("class");
-        		if (classAttr != null || classAttr != "") {
-					if (classAttr.equals("top-fixed-box")) {
-						List<HtmlElement> terminadivElementList = htmlElement.getElementsByTagName("div");
-						List<HtmlElement> h1vElementList =terminadivElementList.get(0).getElementsByTagName("h1");
-						String h1Text = h1vElementList.get(0).getTextContent();
-						List<HtmlElement> h2vElementList =terminadivElementList.get(0).getElementsByTagName("h2");
-						String h2Text = h2vElementList.get(0).getTextContent();
-						baseInfoList.add(h1Text);
-						baseInfoList.add(h2Text);
-					}
-					else if(classAttr.equals("terminalpage clearfix")){
-						List<HtmlElement> terminadivElementList = htmlElement.getElementsByTagName("div");
-						List<HtmlElement> firstUlElementList = terminadivElementList.get(0).getElementsByTagName("ul");
-						List<HtmlElement> firstLiElementList = firstUlElementList.get(0).getElementsByTagName("li");
-						for (HtmlElement liElement : firstLiElementList) {
-							String temp =  liElement.getTextContent();
-							baseInfoList.add(temp);
-						}
-						
-						List<HtmlElement> firstdivElementList = terminadivElementList.get(0).getElementsByTagName("div");
-						List<HtmlElement> detaildivElementList = firstdivElementList.get(0).getElementsByTagName("div");
-						List<HtmlElement> pElementList = detaildivElementList.get(0).getElementsByTagName("p");
-						int i = 0;
-						while (i < 3) {
-							String temp =  pElementList.get(i).getTextContent();
-							i = i+2;
-							baseInfoList.add(temp);
-						}							
-					}
-				}
-        		
-			}
-        	String text  = baseInfoList.toString();
-        	Util.writeStringToText(text);;
-        	 System.out.println(text);
+        try {
+        	ExcelMethod ds = new ExcelMethod();
+        	ds.readExcel();
+        	int row = 0;
+        	   for (String url : urlList) {
+        	        List<String> baseInfoList = new ArrayList<>();
+        	        	getResumeInfo(webClient, url, baseInfoList);       	        	
+        	        	for (int i = 0; i < baseInfoList.size(); i++) {       	        		
+        	        		ds.setValueIntoCell("Sheet1", i, row, baseInfoList.get(i));
+						}       	        	
+        	        	row++;
+        	        	System.out.println(baseInfoList.toString());
+        	        	
+        			}
+        	   ds.closeFile();   
+        	   System.out.println("--------------END---------------");
+        	   
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+    
           
+	}
+
+	private void getResumeInfo(WebClient webClient, String url, List<String> baseInfoList)
+			throws IOException, MalformedURLException {
+		HtmlPage page = webClient.getPage(url);  
+		List<DomElement> bodyElementList = page.getElementsByTagName("body");
+		List<HtmlElement> divElementList = bodyElementList.get(0).getElementsByTagName("div");
+		for (HtmlElement htmlElement : divElementList) {
+			String classAttr = htmlElement.getAttribute("class");
+			if (classAttr != null || classAttr != "") {
+				if (classAttr.equals("top-fixed-box")) {
+					List<HtmlElement> terminadivElementList = htmlElement.getElementsByTagName("div");
+					List<HtmlElement> h1vElementList =terminadivElementList.get(0).getElementsByTagName("h1");
+					String h1Text = h1vElementList.get(0).getTextContent();
+					List<HtmlElement> h2vElementList =terminadivElementList.get(0).getElementsByTagName("h2");
+					String h2Text = h2vElementList.get(0).getTextContent();
+					baseInfoList.add(h1Text);
+					baseInfoList.add(h2Text);
+				}
+				else if(classAttr.equals("terminalpage clearfix")){
+					List<HtmlElement> terminadivElementList = htmlElement.getElementsByTagName("div");
+					List<HtmlElement> firstUlElementList = terminadivElementList.get(0).getElementsByTagName("ul");
+					List<HtmlElement> firstLiElementList = firstUlElementList.get(0).getElementsByTagName("li");
+					for (HtmlElement liElement : firstLiElementList) {
+						String temp =  liElement.getTextContent();
+						baseInfoList.add(temp);
+					}
+					
+					List<HtmlElement> firstdivElementList = terminadivElementList.get(0).getElementsByTagName("div");
+					List<HtmlElement> detaildivElementList = firstdivElementList.get(0).getElementsByTagName("div");
+					List<HtmlElement> pElementList = detaildivElementList.get(0).getElementsByTagName("p");
+					int i = 0;
+					while (i < 3) {
+						String temp =  pElementList.get(i).getTextContent();
+						i = i+2;
+						baseInfoList.add(temp);
+					}							
+				}
+			}
+			
+		}
 	}
 
 	private List<String> getZlzpUrl(WebClient webClient) throws IOException, MalformedURLException {
@@ -78,8 +97,7 @@ public class zhilianzhaopin {
         			+ pageNum
         			+ "&isadv=0";  
             HtmlPage page = webClient.getPage(url);  
-//          System.out.println("页面文本:"+page.getTitleText()); 
-            
+//          System.out.println("页面文本:"+page.getTitleText());             
             DomElement  talbleElement = page.getElementById("newlist_list_content_table");
             List<HtmlElement> talbleElementList =   talbleElement.getElementsByTagName("table");
             System.out.println("size:　" + talbleElementList.size());
